@@ -79,8 +79,10 @@ class _BookPersonalPageState extends State<BookPersonalPage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text("Crear Libro",
+    textAlign:TextAlign.justify,
                 style: TextStyle(
-                  fontSize: 22,
+                  
+                    fontSize: size.width * 0.05,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 )),
@@ -90,13 +92,20 @@ class _BookPersonalPageState extends State<BookPersonalPage> {
         centerTitle: true, // this is all you need
 
         leading: IconButton(
-          icon: const Icon(Icons.menu, color: const Color(0xFFD5CFBF)),
-          onPressed: () {},
+          icon: const Icon(Icons.menu, color: Colors.white),
+          onPressed: () {       Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BooklistPage()),
+                );},
         ),
       ),
       body:
 //bodybirdmorfo(morfo: widget.morfo, imagenm: widget.imagenm)
-
+SingleChildScrollView(
+  
+    physics: NeverScrollableScrollPhysics(),
+  child: 
           Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -104,10 +113,11 @@ class _BookPersonalPageState extends State<BookPersonalPage> {
         children: [
 
 
-             
+   
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical:8 ),
               child: TextFormField (
+                
                     textDirection: TextDirection.ltr,
 
                 style: TextStyle(color:  const Color(0xFF0070eb),),
@@ -119,7 +129,8 @@ class _BookPersonalPageState extends State<BookPersonalPage> {
                 },
                 
   decoration: InputDecoration(
-        
+                          filled: true,
+
       focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(width: 3, color:  Colors.blue.shade900),
     ),
@@ -241,7 +252,7 @@ class _BookPersonalPageState extends State<BookPersonalPage> {
         ],
       ),
 
-    );
+    ));
   }
 
   sendRequest() async {
@@ -283,10 +294,10 @@ if(nombre1 =="" || autor1 =="" || logo1 =="")
           type: QuickAlertType.warning,
           autoCloseDuration: const Duration(seconds: 3),
           text: '',
-          confirmBtnTextStyle: TextStyle(color: Color(0xFFb5bc25)),
+          confirmBtnTextStyle: TextStyle(color:   Colors.white),
           title: "Error",
-          confirmBtnText: "Por favor Valide todos campos",
-          confirmBtnColor: Color(0xFF427382),
+          confirmBtnText: "Por favor Valide todos los campos",
+          confirmBtnColor: Color(0xFF0070eb),
           onConfirmBtnTap: () {
               Navigator.of(context).pop();
           },
@@ -311,10 +322,10 @@ else
           type: QuickAlertType.success,
           autoCloseDuration: const Duration(seconds: 3),
           text: '',
-          confirmBtnTextStyle: TextStyle(color: Color(0xFFb5bc25)),
-          title: "Felicidades",
-          confirmBtnText: "Libro creado correctamente",
-          confirmBtnColor: Color(0xFF427382),
+          confirmBtnTextStyle: TextStyle(color:  Colors.white),
+          title: "Felicitaciones",
+          confirmBtnText: "El Libro fue creado correctamente",
+          confirmBtnColor:  Color(0xFF0070eb),
           onConfirmBtnTap: () {
             Navigator.push(
               context,
@@ -339,123 +350,4 @@ else
       return responseListProducts;
   }
 
-  Widget llegara(int listSales, var nombre, var apellido, var cedula,
-      var status, var size, BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Table(
-      columnWidths: const {
-        0: FixedColumnWidth(180),
-        1: FlexColumnWidth(1),
-        2: FlexColumnWidth()
-      },
-      border: TableBorder.all(
-          width: 1, color: Color(0xFFb5bc25), style: BorderStyle.none),
-      children: [
-        TableRow(children: [
-          Column(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
-              children: [
-                //       Icon(Icons.account_box, size: 12,),
-                //       Text('Producto')
-              ]),
-          Column(children: [
-            //     Icon(Icons.account_box, size: 12,),
-            //     Text('Qty')
-          ]),
-          Column(children: [
-            //     Icon(Icons.account_box, size: 12,),
-            //     Text('Qty')
-          ]),
-        ]),
-        TableRow(children: [
-          InkWell(
-              onTap: () async {},
-              child: Center(
-                  child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        children: [
-                          Container(
-                              width: size.width * 1,
-                              height: size.height * 0.1,
-                              padding: const EdgeInsets.only(top: 1, left: 1),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    nombre.toUpperCase(),
-                                    style: TextStyle(
-                                      color: Color(0xFF427382),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Text(
-                                    apellido.toUpperCase(),
-                                    style: TextStyle(
-                                      color: Color(0xFF427382),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              )),
-                        ],
-                      )))),
-          Center(
-            child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: new TextField(
-                  enabled: false,
-                  keyboardType: TextInputType.number,
-                  style: TextStyle(color: Color(0xFF427382)),
-                  textAlign: TextAlign.center,
-                  onSubmitted: (value) async {},
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(width: 3, color: Color(0xFFb5bc25)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(width: 3, color: Color(0xFF427382)),
-                    ),
-                    labelText: cedula.toString(),
-                    labelStyle: TextStyle(
-                      fontSize: size.width * 0.02,
-                      color: Color(0xFF427382),
-                      fontWeight: FontWeight.bold,
-                    ),
-                    isDense: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        borderSide: new BorderSide(color: Color(0xFF427382))),
-                  ),
-                )),
-          ),
-          Center(
-              child: Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Container(
-              width: size.width * 1,
-              height: size.height * 0.1,
-              padding: const EdgeInsets.all(15),
-              child: Text(
-                status == 1 ? "Activado" : "Desactivado",
-                style: TextStyle(
-                  color: Color(0xFF427382),
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ))
-        ]),
-      ],
-    );
-  }
 }

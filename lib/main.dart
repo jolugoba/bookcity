@@ -90,8 +90,10 @@ class _BooklistPageState extends State<BooklistPage> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text("Listado de Libros",
+        textAlign:TextAlign.justify,
                 style: TextStyle(
-                    fontSize: 22,
+                  
+                    fontSize: size.width * 0.05,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
           ],
@@ -100,8 +102,16 @@ class _BooklistPageState extends State<BooklistPage> {
         centerTitle: true, // this is all you need
 
         leading: IconButton(
-          icon: const Icon(Icons.menu, color: const Color(0xFF0070eb)),
-          onPressed: () {},
+          icon: const Icon(Icons.menu, color:  Colors.white),
+          onPressed: () {
+
+            Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BooklistPage()),
+                );
+            
+          },
         ),
       ),
       body:
@@ -213,9 +223,10 @@ class _BooklistPageState extends State<BooklistPage> {
               ),
             ),
             SizedBox(height: 10),
-            Table(columnWidths: const {
-              0: FixedColumnWidth(180),
-              1: FlexColumnWidth(3),
+            Table(columnWidths:  {
+              
+               0: FixedColumnWidth(size.width *0.4),
+        1: FlexColumnWidth( size.width *0.002),
               2: FlexColumnWidth()
             }, children: [
               TableRow(children: [
@@ -343,9 +354,9 @@ class _BooklistPageState extends State<BooklistPage> {
                     return Center(
                         child: AnimatedTextKit(
                       animatedTexts: [
-                        TypewriterAnimatedText('No results Found.',
+                        TypewriterAnimatedText('No hay resultados.',
                             textStyle: TextStyle(
-                              fontSize: 30,
+                  fontSize: size.width * 0.09,
                               color: Colors.white,
                               backgroundColor:   Color(0xFF0070eb),
                             )),
@@ -362,11 +373,13 @@ class _BooklistPageState extends State<BooklistPage> {
                     children: [
                       GlowingProgressIndicator(
                         child: SizedBox(
+                                    height:size.height * 0.2 
+                          ,width: size.width * 0.9,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
                                 'assets/images/logo.png',
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fitHeight,
                               )),
                         ),
                       ),
@@ -387,9 +400,9 @@ String id = "";
     var size = MediaQuery.of(context).size;
     return Table(
       
-      columnWidths: const {
-        0: FixedColumnWidth(200),
-        1: FlexColumnWidth(2),
+      columnWidths:  {
+        0: FixedColumnWidth(size.width *0.4),
+        1: FlexColumnWidth( size.width *0.002),
         2: FlexColumnWidth()
       },
       border: TableBorder.all(
@@ -433,8 +446,10 @@ String id = "";
                                 
                                 children: [
                                   Text(
+                                    
                                     "Nombre Libro: " + nombrel.toUpperCase(),
                                     style: TextStyle(
+                                      fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -443,6 +458,7 @@ String id = "";
                                   Text(
                                     "Autor Libro : " + autorl.toString(),
                                     style: TextStyle(
+                                      fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -452,6 +468,7 @@ String id = "";
                                                           Text(
                                     "Fecha Creación : "+ fecha,
                                     style: TextStyle(
+                                      fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -460,6 +477,7 @@ String id = "";
                                                      Text(
                                     "Usuario Id : " + idusuario.toString(),
                                     style: TextStyle(
+                                      fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -504,7 +522,7 @@ Row(
 status.map((e) => e.status.toInt()).toString().replaceAll("(", "").replaceAll(")", "") =="0" ||status.toString() =="[]"?
 
                   IconButton(
-          icon: const Icon(Icons.favorite, color: Colors.grey),
+          icon:  Icon(Icons.favorite, color: Colors.grey,size: size.width *0.025,),
           onPressed: () async{
 
 
@@ -566,7 +584,7 @@ setState(() {
           },
         )
              :     IconButton(
-          icon: const Icon(Icons.favorite, color:   const  Color(0xFF0070eb)),
+          icon:  Icon(Icons.favorite, color:   const  Color(0xFF0070eb),size: size.width *0.025,),
           onPressed: () async{
 
 id = status.map((e) => e.id.toInt()).toString().replaceAll("(", "").replaceAll(")", "");

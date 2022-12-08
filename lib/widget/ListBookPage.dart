@@ -1,5 +1,6 @@
 
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:bookcity/main.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bookcity/ListBooksCreateConvert.dart';
 import 'package:bookcity/widget/BookPersonalPage.dart';
@@ -67,19 +68,26 @@ class _ListBookCreatesState extends State<ListBookCreates> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text("Listado de Libros Creados",
+        Text("Listado de Libros Creados",
+         textAlign:TextAlign.justify,
                 style: TextStyle(
-                    fontSize: 22,
+                  
+                    fontSize: size.width * 0.05,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
+         
           ],
         ),
 
         centerTitle: true, // this is all you need
 
         leading: IconButton(
-          icon: const Icon(Icons.menu, color: const Color(0xFF0070eb)),
-          onPressed: () {},
+          icon: const Icon(Icons.menu, color: Colors.white),
+          onPressed: () {       Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BooklistPage()),
+                );},
         ),
       ),
       body:
@@ -153,9 +161,9 @@ class _ListBookCreatesState extends State<ListBookCreates> {
               ),
             ),
             SizedBox(height: 10),
-            Table(columnWidths: const {
-              0: FixedColumnWidth(180),
-              1: FlexColumnWidth(3),
+            Table(columnWidths:  {
+               0: FixedColumnWidth(size.width *0.4),
+        1: FlexColumnWidth( size.width *0.002),
               2: FlexColumnWidth()
             }, children: [
               TableRow(children: [
@@ -283,9 +291,9 @@ class _ListBookCreatesState extends State<ListBookCreates> {
                     return Center(
                         child: AnimatedTextKit(
                       animatedTexts: [
-                        TypewriterAnimatedText('No results Found.',
+                        TypewriterAnimatedText('No hay resultados.',
                             textStyle: TextStyle(
-                              fontSize: 30,
+                              fontSize: size.width * 0.09,
                               color: Colors.white,
                               backgroundColor:   Color(0xFF0070eb),
                             )),
@@ -302,11 +310,14 @@ class _ListBookCreatesState extends State<ListBookCreates> {
                     children: [
                       GlowingProgressIndicator(
                         child: SizedBox(
+                          height:size.height * 0.2 
+                          ,width: size.width * 0.9,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
+
                                 'assets/images/logo.png',
-                                fit: BoxFit.cover,
+                                 fit: BoxFit.fitHeight,
                               )),
                         ),
                       ),
@@ -327,9 +338,9 @@ String id = "";
     var size = MediaQuery.of(context).size;
     return Table(
       
-      columnWidths: const {
-        0: FixedColumnWidth(200),
-        1: FlexColumnWidth(2),
+      columnWidths:  {
+     0: FixedColumnWidth(size.width *0.4),
+        1: FlexColumnWidth( size.width *0.002),
         2: FlexColumnWidth()
       },
       border: TableBorder.all(
@@ -375,6 +386,7 @@ String id = "";
                                   Text(
                                     "Nombre Libro: " + nombrel.toUpperCase(),
                                     style: TextStyle(
+                                            fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -383,6 +395,7 @@ String id = "";
                                   Text(
                                     "Autor Libro : " + autorl.toString(),
                                     style: TextStyle(
+                                               fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -392,6 +405,7 @@ String id = "";
                                                           Text(
                                     "Fecha Creación : "+ fecha,
                                     style: TextStyle(
+                                            fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -400,6 +414,7 @@ String id = "";
                                                      Text(
                                     "Usuario Id : " + idusuario.toString(),
                                     style: TextStyle(
+                                                fontSize: size.width *0.025,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
