@@ -517,7 +517,7 @@ id = status.map((e) => e.id.toInt()).toString().replaceAll("(", "").replaceAll("
 
 if(id ==""){
         final response =
-        await http.post(Uri.parse('http://192.168.10.59:8000/api/calificar/?status=1&user_id=1&libro_id='+id_libro.toString()));
+        await http.post(Uri.parse('http://201.216.8.37:8000/api/calificar/?status=1&user_id=1&libro_id='+id_libro.toString()));
 
     if (response.statusCode == 201) {
 
@@ -542,7 +542,7 @@ else{
 
 
        final response =
-        await http.put(Uri.parse('http://192.168.10.59:8000/api/relacionesput/?status=1&id='+id.toString()+'&user_id=1&libro_id='+id_libro.toString()));
+        await http.put(Uri.parse('http://201.216.8.37:8000/api/relacionesput/?status=1&id='+id.toString()+'&user_id=1&libro_id='+id_libro.toString()));
 
     if (response.statusCode == 200) {
 
@@ -576,7 +576,7 @@ id = status.map((e) => e.id.toInt()).toString().replaceAll("(", "").replaceAll("
 
 if(id ==""){
         final response =
-        await http.post(Uri.parse('http://192.168.10.59:8000/api/calificar/?status=1&user_id=1&libro_id='+id_libro.toString()));
+        await http.post(Uri.parse('http://201.216.8.37:8000/api/calificar/?status=1&user_id=1&libro_id='+id_libro.toString()));
 
     if (response.statusCode == 200) {
 
@@ -601,7 +601,7 @@ else{
 
 
        final response =
-        await http.put(Uri.parse('http://192.168.10.59:8000/api/relacionesput/?status=0&id='+id.toString()+'&user_id=1&libro_id='+id_libro.toString()));
+        await http.put(Uri.parse('http://201.216.8.37:8000/api/relacionesput/?status=0&id='+id.toString()+'&user_id=1&libro_id='+id_libro.toString()));
 
     if (response.statusCode == 200) {
 
@@ -651,7 +651,7 @@ setState(() {
     var responseListProducts;
 Future<List<ListadoLibros>>  showss;
     final response =
-        await http.get(Uri.parse('http://192.168.10.59:8000/api/porlibros?user_id=1'));
+        await http.get(Uri.parse('http://201.216.8.37:8000/api/porlibros?user_id=1'));
 
     if (response.statusCode == 200) {
 
