@@ -303,6 +303,7 @@ class _BooklistPageState extends State<BooklistPage> {
                      
                                   },
                                   child: Container(
+                                    
                                       width: size.width * 1,
                                       height: size.height * 0.16,
                                       decoration: BoxDecoration(
@@ -401,8 +402,8 @@ String id = "";
     return Table(
       
       columnWidths:  {
-        0: FixedColumnWidth(size.width *0.4),
-        1: FlexColumnWidth( size.width *0.002),
+        0: FixedColumnWidth(size.width *0.5),
+        1: FlexColumnWidth( size.width *0.001),
         2: FlexColumnWidth()
       },
       border: TableBorder.all(
@@ -419,11 +420,22 @@ String id = "";
                 //       Icon(Icons.account_box, size: 12,),
                 //       Text('Producto')
               ]),
-          Column(children: [
+          Column(
+                  mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+              crossAxisAlignment: CrossAxisAlignment
+                  .center, //Center Column contents horizontally,
+
+            children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
-          Column(children: [
+          Column(
+                  mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+              crossAxisAlignment: CrossAxisAlignment
+                  .center, //Center Column contents horizontally,
+children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
@@ -433,71 +445,89 @@ String id = "";
               onTap: () async {},
               child: Center(
                   child: Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(2),
                       child: Column(
-                        
+                           mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+              crossAxisAlignment: CrossAxisAlignment
+                  .center, //Center Column contents horizontally,
+
                         children: [
                           Container(
-                              width: size.width * 1,
-                              height: size.height * 0.2,
-                              padding: const EdgeInsets.only(top: 1, left: 1),
+                           
+                                      padding: const EdgeInsets.all(2),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     
                                     "Nombre Libro: " + nombrel.toUpperCase(),
-                                    style: TextStyle(
-                                      fontSize: size.width *0.025,
+                                    style: TextStyle(     fontSize: size.width *0.025 ,
+                                      color:  Color(0xFF0070eb),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                       Text(
+                                    
+                                     nombrel.toUpperCase(),
+                                    style: TextStyle(     fontSize: size.width *0.025 ,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
                                   Text(
-                                    "Autor Libro : " + autorl.toString(),
-                                    style: TextStyle(
-                                      fontSize: size.width *0.025,
+                                    "Autor Libro : " + autorl.toString(),    style: TextStyle(   fontSize: size.width *0.025 ,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
                           
-                                                          Text(
-                                    "Fecha Creación : "+ fecha,
-                                    style: TextStyle(
-                                      fontSize: size.width *0.025,
-                                      color:  Color(0xFF0070eb),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                                     Text(
+                                       Text(
                                     "Usuario Id : " + idusuario.toString(),
-                                    style: TextStyle(
-                                      fontSize: size.width *0.025,
+                                    style: TextStyle(     fontSize: size.width *0.025 ,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
+                                                                   Text(
+                                    "Fecha Creación : "+ fecha,    style: TextStyle(     fontSize:  size.width *0.025 ,
+                                      color:  Color(0xFF0070eb),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                       
+                                                                        Text(
+                                   fecha,    style: TextStyle(     fontSize:  size.width *0.025 ,
+                                      color:  Color(0xFF0070eb),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                       
                                 ],
                               )),
                         ],
                       )))),
-          Center(
+          Container(
+               height: size.height*0.15,
+                        width: size.width*0.09,
+                 padding: const EdgeInsets.all(1),
             child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: new 
+                padding: const EdgeInsets.all(1),
+                child:  
                   Positioned(
                       bottom: 1,
                       
                       child: Image.network(
                         logo,
-                        height: size.height*0.1,
-                        width: size.width*0.09,
+                     
                       ),
                     )
                 
@@ -505,7 +535,7 @@ String id = "";
           ),
           Center(
               child: Padding(
-            padding: const EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 10),
             child: Container(
               width: size.width * 1,
               height: size.height * 0.1,

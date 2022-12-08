@@ -339,8 +339,8 @@ String id = "";
     return Table(
       
       columnWidths:  {
-     0: FixedColumnWidth(size.width *0.4),
-        1: FlexColumnWidth( size.width *0.002),
+         0: FixedColumnWidth(size.width *0.5),
+        1: FlexColumnWidth( size.width *0.001),
         2: FlexColumnWidth()
       },
       border: TableBorder.all(
@@ -357,11 +357,23 @@ String id = "";
                 //       Icon(Icons.account_box, size: 12,),
                 //       Text('Producto')
               ]),
-          Column(children: [
+          Column(
+                       mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+              crossAxisAlignment: CrossAxisAlignment
+                  .center, //Center Column contents horizontally,
+
+            children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
-          Column(children: [
+          Column(
+                       mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+              crossAxisAlignment: CrossAxisAlignment
+                  .center, //Center Column contents horizontally,
+
+            children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
@@ -376,10 +388,12 @@ String id = "";
                         
                         children: [
                           Container(
-                              width: size.width * 1,
-                              height: size.height * 0.2,
+                     
                               padding: const EdgeInsets.only(top: 1, left: 1),
                               child: Column(
+                                           mainAxisAlignment:
+                  MainAxisAlignment.center, //Center Column contents vertically,
+         
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 
                                 children: [
@@ -424,17 +438,19 @@ String id = "";
                               )),
                         ],
                       )))),
-          Center(
+    Container(
+               height: size.height*0.15,
+                        width: size.width*0.09,
+                 padding: const EdgeInsets.all(1),
             child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: new 
+                padding: const EdgeInsets.all(1),
+                child:  
                   Positioned(
                       bottom: 1,
                       
                       child: Image.network(
                         logo,
-                        height: size.height*0.1,
-                        width: size.width*0.09,
+                     
                       ),
                     )
                 
@@ -442,7 +458,7 @@ String id = "";
           ),
           Center(
               child: Padding(
-            padding: const EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 10),
             child: Container(
               width: size.width * 1,
               height: size.height * 0.1,
