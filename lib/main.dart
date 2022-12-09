@@ -83,6 +83,8 @@ class _BooklistPageState extends State<BooklistPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+        resizeToAvoidBottomInset: false,
+
       appBar: AppBar(
         backgroundColor: const Color(0xFF0070eb),
         title: Row(
@@ -115,12 +117,15 @@ class _BooklistPageState extends State<BooklistPage> {
         ),
       ),
       body:
-//bodybirdmorfo(morfo: widget.morfo, imagenm: widget.imagenm)
+ new SizedBox( 
+        height: size.height,
+        child:
 
+
+        Expanded(child:
           Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              
+     
               children: [
             GestureDetector(
               onTap: () {
@@ -162,7 +167,8 @@ class _BooklistPageState extends State<BooklistPage> {
                       builder: (context) =>  ListBookCreates()),
                 );
               },
-              child: Row(
+              child: 
+         Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text("Listar Libros Creados",style: TextStyle(color: const Color(0xFF0070eb),
@@ -196,6 +202,8 @@ class _BooklistPageState extends State<BooklistPage> {
                             fontSize: size.height * 0.024,
                             fontWeight: FontWeight.bold,
                             color: const Color(0xFF0070eb))))),
+
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: TextField(
@@ -282,6 +290,9 @@ class _BooklistPageState extends State<BooklistPage> {
                         padding: const EdgeInsets.all(8),
                         itemCount: snapshot.data!.length,
                         itemBuilder: (BuildContext context, int index) {
+
+
+
                           return snapshot.data![index].idLibro
                                       .toString()
                                       .toLowerCase()
@@ -298,14 +309,17 @@ class _BooklistPageState extends State<BooklistPage> {
                                       .toString()
                                       .toLowerCase()
                                       .contains(searchString)
-                              ? InkWell(
+                              ? 
+                              
+                              
+                              
+                              InkWell(
                                   onTap: () {
                      
                                   },
                                   child: Container(
                                     
-                                      width: size.width * 1,
-                                      height: size.height * 0.16,
+                                   
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -390,7 +404,7 @@ class _BooklistPageState extends State<BooklistPage> {
                 future: shows,
               ),
             ))
-          ]));
+          ]))));
 
   }
 String id = "";
@@ -411,30 +425,20 @@ String id = "";
       children: [
         TableRow(children: [
           Column(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
+   
               children: [
                 //       Icon(Icons.account_box, size: 12,),
                 //       Text('Producto')
               ]),
           Column(
-                  mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
+        
             children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
           Column(
-                  mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
+            //Center Column contents vertically,
+      
 children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
@@ -458,8 +462,8 @@ children: [
                                       padding: const EdgeInsets.all(2),
                               child: Column(
                                 
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
                                     
@@ -495,14 +499,14 @@ children: [
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
-                                                                   Text(
-                                    "Fecha Creación : "+ fecha,    style: TextStyle(     fontSize:  size.width *0.025 ,
+                             
+                                                                             Text(
+                                    "Fecha Creación : ",    style: TextStyle(     fontSize:  size.width *0.025 ,
                                       color:  Color(0xFF0070eb),
                                       fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.justify,
                                   ),
-                                       
                                                                         Text(
                                    fecha,    style: TextStyle(     fontSize:  size.width *0.025 ,
                                       color:  Color(0xFF0070eb),
@@ -679,7 +683,7 @@ setState(() {
  cantidad.toString()
                ,
                 style: TextStyle(
-                  fontSize: size.width * 0.03,
+                  fontSize: size.width * 0.02,
                   color:   Color(0xFF0070eb),
                   fontWeight: FontWeight.bold,
                 ),

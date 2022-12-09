@@ -92,9 +92,14 @@ class _ListBookCreatesState extends State<ListBookCreates> {
       ),
       body:
 //bodybirdmorfo(morfo: widget.morfo, imagenm: widget.imagenm)
+ new SizedBox( 
+        height: size.height,
+        child:
 
+
+        Expanded(child:
           Column(
-              mainAxisSize: MainAxisSize.max,
+      
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -240,8 +245,7 @@ class _ListBookCreatesState extends State<ListBookCreates> {
                      
                                   },
                                   child: Container(
-                                      width: size.width * 1,
-                                      height: size.height * 0.16,
+                                
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -327,7 +331,7 @@ class _ListBookCreatesState extends State<ListBookCreates> {
                 future: shows,
               ),
             ))
-          ]));
+          ]))));
 
   }
 String id = "";
@@ -348,31 +352,19 @@ String id = "";
       children: [
         TableRow(children: [
           Column(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
+  
               children: [
                 //       Icon(Icons.account_box, size: 12,),
                 //       Text('Producto')
               ]),
           Column(
-                       mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
+       
             children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
           ]),
           Column(
-                       mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-              crossAxisAlignment: CrossAxisAlignment
-                  .center, //Center Column contents horizontally,
-
+   
             children: [
             //     Icon(Icons.account_box, size: 12,),
             //     Text('Qty')
@@ -391,10 +383,8 @@ String id = "";
                      
                               padding: const EdgeInsets.only(top: 1, left: 1),
                               child: Column(
-                                           mainAxisAlignment:
-                  MainAxisAlignment.center, //Center Column contents vertically,
-         
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                   crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 
                                 children: [
                                   Text(
@@ -477,7 +467,7 @@ Row(
  cantidad.toString()
                ,
                 style: TextStyle(
-                  fontSize: size.width * 0.03,
+                fontSize: size.width * 0.02,
                   color:   Color(0xFF0070eb),
                   fontWeight: FontWeight.bold,
                 ),

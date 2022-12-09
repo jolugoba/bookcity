@@ -211,8 +211,8 @@ SingleChildScrollView(
 
           LikeButton(
             onTap: (isLiked) => onLikeButtonTapped2(
-                isLiked, nombre, autor, logo),
-            size: 190,
+                isLiked, nombre, autor, logo,size),
+            size: 300,
             circleColor: const CircleColor(
                 start: const Color(0xFF0070eb), end: const Color(0xFF0070eb)),
             bubblesColor: const BubblesColor(
@@ -222,27 +222,24 @@ SingleChildScrollView(
             likeBuilder: (isLikedss) {
               return SingleChildScrollView(
                   child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.person,
-                    color: const Color(0xFF0070eb),
-                    size: buttonSize,
-                  ),
                   SizedBox(
-                    width: 150.0,
+                    height: size.height * 0.09,
+             width:     size.width * 0.3,
                     child: TextLiquidFill(
+                  
                       waveDuration: const Duration(seconds: 360),
                       loadDuration: const Duration(seconds: 360),
                       text: "Crear Libro",
                       waveColor: Colors.blue.shade900,
                       boxBackgroundColor: const Color(0xFF0070eb),
                       textStyle: TextStyle(
-                        fontSize: 12.0,
+                        fontSize: size.width *0.04,
                         fontWeight: FontWeight.bold,
                       ),
-                      boxHeight: 40.0,
+                 
                     ),
                   )
                 ],
@@ -265,26 +262,26 @@ SingleChildScrollView(
 
   bool isLikeds = false;
   Future<bool> onLikeButtonTapped2(
-      bool isLiked, String nombre, String autor, String logo) async {
+      bool isLiked, String nombre, String autor, String logo, var size) async {
     /// send your request here
     final bool success = await sendRequest();
 
     setState(() {
       isLikeds = success ? !isLiked : isLiked;
     });
-    var t = sendRequestt2(nombre, autor, logo);
+    var t = sendRequestt2(nombre, autor, logo,size);
 
     /// if failed, you can do nothing
     return success ? !isLiked : isLiked;
   }
 
-  sendRequestt2(String nombre, String autor, String logo) async {
+  sendRequestt2(String nombre, String autor, String logo, var size) async {
     await Future.delayed(const Duration(seconds: 2), () {
-      fetchShowspost( nombre,autor, logo);
+      fetchShowspost( nombre,autor, logo,size);
     });
   }
 
-  Future<List> fetchShowspost(String nombre1 , String autor1, String logo1) async {
+  Future<List> fetchShowspost(String nombre1 , String autor1, String logo1, var size) async {
 
      var responseListProducts;
 if(nombre1 =="" || autor1 =="" || logo1 =="")
@@ -294,7 +291,8 @@ if(nombre1 =="" || autor1 =="" || logo1 =="")
           type: QuickAlertType.warning,
           autoCloseDuration: const Duration(seconds: 3),
           text: '',
-          confirmBtnTextStyle: TextStyle(color:   Colors.white),
+
+          confirmBtnTextStyle: TextStyle(color:   Colors.white,fontSize:  size.width *0.025,),
           title: "Error",
           confirmBtnText: "Por favor Valide todos los campos",
           confirmBtnColor: Color(0xFF0070eb),
@@ -322,7 +320,7 @@ else
           type: QuickAlertType.success,
           autoCloseDuration: const Duration(seconds: 3),
           text: '',
-          confirmBtnTextStyle: TextStyle(color:  Colors.white),
+          confirmBtnTextStyle: TextStyle(color:  Colors.white,fontSize:  size.width *0.025,),
           title: "Felicitaciones",
           confirmBtnText: "El Libro fue creado correctamente",
           confirmBtnColor:  Color(0xFF0070eb),
